@@ -1,0 +1,71 @@
+/*Back to top button*/
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  background-color: #182241;
+  color: #FFF5D9;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#backToTop svg {
+  stroke: currentColor;
+}
+
+#backToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#backToTop:hover {
+  transform: scale(1.1);
+  background-color: #25325f;
+}
+
+@media (max-width: 768px) {
+  #backToTop {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
+/*Scrolling background for our-events/halloween-social-2025-10-31 */
+#item-68ff1e2f449aa56ab5b26b1d [data-section-id="689d6f7e0b0409701aa73b7f"] .section-background {
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("https://static1.squarespace.com/static/685352b2518dd627890cbbea/t/68f634a4ef92103ba0e65cd0/1760965809157/halloween-background.png") !important;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-position 0.2s linear;
+}
+
+@media (max-width: 1024px) {
+  #item-68ff1e2f449aa56ab5b26b1d [data-section-id="689d6f7e0b0409701aa73b7f"] .section-background {
+    background-image: none !important;
+    background-color: #000 !important;
+    background-attachment: scroll !important;
+    background-position: center top !important;
+    background-size: auto !important;
+  }
+}
