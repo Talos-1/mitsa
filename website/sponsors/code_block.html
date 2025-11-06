@@ -1,0 +1,244 @@
+<style>
+  :root {
+    --tier-1-top: #0b1024;
+    --tier-1-btm: #1a2442;
+    --tier-2-top: #141a33;
+    --tier-2-btm: #202b46;
+    --tier-3-top: #1b1f33;
+    --tier-3-btm: #2a2f4d;
+    --ink: #ffffff;
+    --ink-sub: #cdd6ea;
+    --card: #0f1530;
+    --card-br: 18px;
+  }
+
+  /* ===== Tier section ===== */
+  .sponsor-tier {
+    position: relative;
+    color: var(--ink);
+    padding: 36px 16px;
+    overflow: hidden;
+    animation: fadeUp 0.6s ease both;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 420px;
+    box-sizing: border-box;
+  }
+  .sponsor-tier .tier-wrap {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Headings */
+  .tier-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+
+  /* Backgrounds per tier */
+  #tier-transformer {
+    background: linear-gradient(180deg, var(--tier-1-top), var(--tier-1-btm));
+  }
+  #tier-neural-network {
+    background: linear-gradient(180deg, var(--tier-2-top), var(--tier-2-btm));
+  }
+  #tier-perceptron {
+    background: linear-gradient(180deg, var(--tier-3-top), var(--tier-3-btm));
+  }
+
+  /* Divider shape pinned to bottom of each section */
+  .sponsor-tier .tier-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+  .tier-divider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .tier-divider path {
+    opacity: 0.85;
+  }
+
+  /* ===== Sponsor cards ===== */
+  .logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    list-style: none;
+    margin: 22px 0 8px;
+    padding: 0;
+  }
+
+  .logo-grid .logo {
+    background: var(--card);
+    border-radius: var(--card-br);
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    flex: 0 1 280px;
+    width: auto;
+
+    min-height: 200px;
+    height: 200px;
+    box-sizing: border-box;
+  }
+
+  .logo-grid .logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  }
+  .logo-grid .logo img {
+    max-width: 240px;
+    max-height: 120px;
+    height: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  }
+  .logo-name {
+    color: var(--ink-sub);
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<!-- ===== TIER 1: Transformer ===== -->
+<div class="sponsor-tier" id="tier-transformer">
+  <div class="tier-wrap">
+    <h2 class="tier-title">Transformer Tier</h2>
+
+    <ul class="logo-grid">
+      <li class="logo">
+        <a
+          href="https://www.adelaide.edu.au/aiml/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="https://static1.squarespace.com/static/685352b2518dd627890cbbea/t/690b08f7fd02d07d80479e64/1762330871520/uoa_aiml.png"
+            alt="Australian Institute for Machine Learning"
+          />
+        </a>
+        <p class="logo-name">Australian Institute for Machine Learning</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tier-divider" aria-hidden="true">
+    <svg
+      viewBox="0 0 1440 100"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill="var(--tier-2-top)"
+        d="M0,100 L1440,0 L1440,100 L0,100 Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+<!-- ===== TIER 2: Neural Network ===== -->
+<div class="sponsor-tier" id="tier-neural-network">
+  <div class="tier-wrap">
+    <h2 class="tier-title">Neural Network Tier</h2>
+
+    <ul class="logo-grid">
+      <li class="logo">
+        <a href="https://www.adelaide.edu.au/" target="_blank" rel="noopener">
+          <img
+            src="https://static1.squarespace.com/static/685352b2518dd627890cbbea/t/690b0b42135254189d19e233/1762331459023/the-university-of-adelaide-logo.png"
+            alt="The University of Adelaide"
+          />
+        </a>
+        <p class="logo-name">The University of Adelaide</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tier-divider" aria-hidden="true">
+    <svg
+      viewBox="0 0 1440 100"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill="var(--tier-3-top)"
+        d="M0,100 L1440,0 L1440,100 L0,100 Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+<!-- ===== TIER 3: Perceptron ===== -->
+<div class="sponsor-tier" id="tier-perceptron">
+  <div class="tier-wrap">
+    <h2 class="tier-title">Perceptron Tier</h2>
+
+    <ul class="logo-grid">
+      <li class="logo">
+        <a href="https://insightfactory.ai/" target="_blank" rel="noopener">
+          <img
+            src="https://static1.squarespace.com/static/685352b2518dd627890cbbea/t/690b0e0b9076770ae80fa499/1762332171747/insight_factory_ai.png"
+            alt="Insight Factory AI"
+          />
+        </a>
+        <p class="logo-name">Insight Factory AI</p>
+      </li>
+      <li class="logo">
+        <a
+          href="https://www.adelaide.edu.au/saigenci/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="https://static1.squarespace.com/static/685352b2518dd627890cbbea/t/690b0ccd56030c3647d63a9e/1762331854893/saigenci.jpg"
+            alt="SAiGENCI"
+          />
+        </a>
+        <p class="logo-name">SAiGENCI</p>
+      </li>
+      <li class="logo">
+        <a href="https://rhombusai.com/about-us" target="_blank" rel="noopener">
+          <img
+            src="https://static1.squarespace.com/static/685352b2518dd627890cbbea/t/690b0ccf7d691b321625a996/1762331855109/rhombus_ai.png"
+            alt="Rhombus AI"
+          />
+        </a>
+        <p class="logo-name">Rhombus AI</p>
+      </li>
+    </ul>
+  </div>
+</div>
