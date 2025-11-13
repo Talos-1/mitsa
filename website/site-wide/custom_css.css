@@ -1,11 +1,11 @@
-/*Back to top button*/
+/* --- back to top button --- */
 #backToTop {
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 9999;
   background-color: #182241;
-  color: #fff5d9;
+  color: #FFF5D9;
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -45,27 +45,214 @@
   }
 }
 
-/*Scrolling background for our-events/halloween-social-2025-10-31 */
-#item-68ff1e2f449aa56ab5b26b1d
-  [data-section-id="689d6f7e0b0409701aa73b7f"]
-  .section-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://static1.squarespace.com/static/685352b2518dd627890cbbea/t/68f634a4ef92103ba0e65cd0/1760965809157/halloween-background.png") !important;
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  transition: background-position 0.2s linear;
+/* --- blog newsletter styling --- */
+div.newsletter-block .newsletter-form-header-title {
+  color: #ffffff !important;
 }
 
-@media (max-width: 1024px) {
-  #item-68ff1e2f449aa56ab5b26b1d
-    [data-section-id="689d6f7e0b0409701aa73b7f"]
-    .section-background {
-    background-image: none !important;
-    background-color: #000 !important;
-    background-attachment: scroll !important;
-    background-position: center top !important;
-    background-size: auto !important;
+div.newsletter-block .newsletter-form-header-description {
+  color: #ffffff !important;
+}
+
+div.newsletter-block .newsletter-form-button-label {
+  color: #ffffff !important;
+}
+
+div.newsletter-block .newsletter-form-footnote p {
+  color: #ffffff !important;
+}
+
+a.social-rss {
+  color: #ffffff;
+}
+
+/* --- Vertical timeline nav on photos page --- */
+#timeline-nav {
+  position: fixed;
+  top: 50%;
+  right: 40px;                /* change to left:40px to flip sides */
+  transform: translateY(-50%);
+  z-index: 9999;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+#timeline-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+#timeline-nav ul::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#timeline-nav li {
+  margin: 0;
+}
+
+#timeline-nav a {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #9aa0a6;
+  position: relative;
+  padding: 10px;
+  box-sizing: content-box;
+  transition: background 0.25s ease, transform 0.25s ease;
+  font-size: 0;
+  color: transparent;
+}
+
+#timeline-nav a::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 28px;              
+  top: 50%;
+  transform: translateY(-50%);
+  color: #FFF5D9;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.8;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+#timeline-nav a:hover {
+  filter: brightness(1.05);
+}
+
+#timeline-nav a.active {
+  background: #FFF5D9;
+  transform: scale(1.2);
+}
+
+#timeline-nav a.active::after {
+  color: #FFFFFF;
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  #timeline-nav {
+    display: none
   }
 }
+
+/* workaround for no image in home screen calender on mobile view */
+@media screen and (max-width:640px) {
+td.has-event {
+    background: #FFF5D9 !important;
+    opacity: 1 !important;
+   }
+}
+
+/* Nav Items */
+.header-nav-item a,
+.header-nav-folder-title-text {
+  border-radius: 8px;
+  padding: 2px 6px !important;
+  margin-inline: 0 !important;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.header-nav-item a span {
+  margin: auto;
+}
+
+.header-nav-item a:hover,
+.header-nav-folder-title:hover {
+  background: #124868; /* Only on hover */
+  color: white;
+}
+
+/* Dropdown container */
+.header-nav-item--folder {
+  position: relative;
+}
+
+/* Dropdown arrow rotation */
+.header-dropdown-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.header-nav-item--folder:hover .header-dropdown-icon,
+.header-nav-item--folder:focus-within .header-dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.header-nav-folder-content {
+  top: 100%;
+  left: 0;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* Show dropdown on hover */
+.header-nav-item--folder:hover .header-nav-folder-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scaleY(1);
+  animation: growDown 500ms ease-in-out forwards;
+}
+
+/* Dropdown items with divider */
+.header-nav-folder-item {
+  padding: 5px;
+  border-bottom: 1px solid #ccc; /* Divider */
+  border-radius: 0; /* Keep square for divider */
+}
+
+.header-nav-folder-item:last-child {
+  border-bottom: none; /* Remove divider for last item */
+}
+
+.header-nav-folder-item a {
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.header-nav-folder-item a span {
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.header-nav-folder-item a:hover {
+  background: #124868; /* Hover color only */
+  color: white;
+}
+
+/* Dropdown animation keyframes */
+@keyframes growDown {
+  0% { transform: scaleY(0); }
+  80% { transform: scaleY(1.1); }
+  100% { transform: scaleY(1); }
+}	
