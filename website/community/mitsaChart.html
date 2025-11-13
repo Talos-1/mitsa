@@ -1,54 +1,58 @@
 <canvas id="mitsaChart"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const ctx = document.getElementById("mitsaChart");
+const ctx = document.getElementById('mitsaChart');
 
-  const monthlyFunds = {
-    Sep: 1336,
-  };
+const monthlyFunds = {
+  Jan: 0,
+  Feb: 0,
+  Mar: 0,
+  Apr: 0,
+  May: 0,
+  Jun: 0,
+  Jul: 0,
+  Aug: 0,
+  Sep: 1336,
+  Oct: 100,
+  Nov: 91,
+};
 
-  let runningTotal = 0;
-  const cumulativeData = Object.entries(monthlyFunds).map(([month, amount]) => {
-    runningTotal += amount;
-    return { x: month, y: runningTotal };
-  });
+let runningTotal = 0;
+const cumulativeData = Object.entries(monthlyFunds).map(([month, amount]) => {
+  runningTotal += amount;
+  return { x: month, y: runningTotal };
+});
 
-  const config = {
-    type: "line",
-    data: {
-      datasets: [
-        {
-          label: "Cumulative Funds Raised ($) in 2025",
-          data: cumulativeData,
-          borderColor: "#FFF5D9",
-          backgroundColor: "rgba(255, 245, 217, 0.2)",
-          tension: 0.4,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        x: {
-          type: "category",
-          ticks: { color: "#FFF5D9" },
-          grid: { color: "rgba(255, 245, 217, 0.2)" },
-          title: { display: true, text: "Month", color: "#FFF5D9" },
-        },
-        y: {
-          ticks: { color: "#FFF5D9" },
-          grid: { color: "rgba(255, 245, 217, 0.2)" },
-          title: {
-            display: true,
-            text: "Cumulative Funds ($)",
-            color: "#FFF5D9",
-          },
-        },
+const config = {
+  type: 'line',
+  data: {
+    datasets: [{
+      label: 'Cumulative Funds Raised ($) in 2025',
+      data: cumulativeData,
+      borderColor: '#FFF5D9',
+      backgroundColor: 'rgba(255, 245, 217, 0.2)',
+      tension: 0
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        type: 'category',
+        ticks: { color: '#FFF5D9' },
+        grid: { color: 'rgba(255, 245, 217, 0.2)' },
+        title: { display: true, text: 'Month', color: '#FFF5D9' }
       },
-      plugins: {
-        legend: { display: false },
-      },
+      y: {
+        ticks: { color: '#FFF5D9' },
+        grid: { color: 'rgba(255, 245, 217, 0.2)' },
+        title: { display: true, text: 'Cumulative Amount ($) Raised', color: '#FFF5D9' }
+      }
     },
-  };
+    plugins: {
+      legend: { display: false }
+    }
+  }
+};
 
-  new Chart(ctx, config);
+new Chart(ctx, config);
 </script>
